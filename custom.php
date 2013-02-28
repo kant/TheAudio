@@ -50,24 +50,23 @@ function get_speaker_playlist()
 $collections=get_records("Collection", array("public"=>"true","featured"=>"true"));
 $current_collection=end($collections);
 $items=get_records("Item", array("collection"=>$current_collection));
-$playlist= "[";
-foreach ($items as $item){
-	$titlemetadata= metadata($item, array("Dublin Core", "Title"));
-		foreach($item->Files as $file) {
-			$sourcemetadata= metadata($file, "uri");
-			$imagemetadata= metadata($file, "square_thumbnail_uri");
-			if (strpos($file["filename"], "mp3") !== false) {
-				$playlist .=
-				"{\"0\": {\"src\":\"$sourcemetadata\", \"type\":\"audio/mp3\"}, 
-				\"config\": 
-				{\"title\": \"$titlemetadata\",
-				\"poster\": \"$imagemetadata\"}},";
-			}
-		}		
+$playlist = array();
+foreach ($items as $item) {
+    $titleMetadata = metadata($item, array('Dublin Core', 'Title'));
+    foreach ($item->Files as $file) {
+        $sourceMetadata = metadata($file, 'uri');
+        $imageMetadata = metadata($file, 'square_thumbnail_uri');
+        if ($file->getExtension() == 'mp3') {
+            $playlist[] = array(
+                '0'      => array('src' => $sourceMetadata, 'type' => 'audio/mp3'),
+                'config' => array('title' => $titleMetadata, 'poster' => $imageMetadata)
+            );
+        }
+    }       
 }
-$playlist .= "]";
 
-$string = '$(document).ready(function() {projekktor(".projekktor").setFile(' . $playlist . ');});';
+$jsonPlaylist = json_encode($playlist);
+$string = '$(document).ready(function() {projekktor(".projekktor").setFile(' . $jsonPlaylist . ');});';
 queue_js_string($string);
 }
 
