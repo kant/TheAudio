@@ -82,7 +82,3 @@ foreach ($items as $item){
 	<?php endif;}
 	$num++;}
 }
-<<<<<<< HEAD
-=======
-?>
->>>>>>> Fix crash in get_speaker_playlist().
