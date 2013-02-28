@@ -1,28 +1,4 @@
 <?php
-function find_random_item($params = array())
-{
-    $db = get_db();
-    $table = $db->getTable('Item');
-
-    $select = new Omeka_Db_Select;
-    $select->from(array('i'=>$db->Item), array('i.*'));
-    $select->from(array(), 'RAND() as rand');
-    $select->order('rand DESC');
-
-    if ($params['withImage']) {
-        $select->joinLeft(array('f'=>"$db->File"), 'f.item_id = i.id', array());
-        $select->where('f.has_derivative_image = 1');
-    }
-
-    $table->applySearchFilters($select, $params);
-
-    $select->limit(1);
-
-    $item = $table->fetchObject($select);
-
-    return $item;
-}
-
 function display_random_featured_collection_with_item()
 {
 
