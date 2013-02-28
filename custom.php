@@ -47,9 +47,9 @@ function display_random_featured_collection_with_item()
 
 function get_speaker_playlist()
 {
-$collections=get_records("collection", array("public"=>"true","featured"=>"true"));
+$collections=get_records("Collection", array("public"=>"true","featured"=>"true"));
 $current_collection=end($collections);
-$items=get_records("item", array("collection"=>$current_collection));
+$items=get_records("Item", array("collection"=>$current_collection));
 $playlist= "[";
 foreach ($items as $item){
 	$titlemetadata= metadata($item, array("Dublin Core", "Title"));
@@ -72,7 +72,7 @@ queue_js_string($string);
 }
 
 function get_items_with_images() 
-{$items=get_records("item", array("collection"=>$current_collection));
+{$items=get_records("Item", array("collection"=>$current_collection));
 $num=0;
 foreach ($items as $item){			
 	
@@ -82,3 +82,7 @@ foreach ($items as $item){
 	<?php endif;}
 	$num++;}
 }
+<<<<<<< HEAD
+=======
+?>
+>>>>>>> Fix crash in get_speaker_playlist().
