@@ -23,9 +23,6 @@ function find_random_item($params = array())
     return $item;
 }
 
-?>
-
-<?php
 function display_random_featured_collection_with_item()
 {
 
@@ -47,9 +44,7 @@ function display_random_featured_collection_with_item()
     }
     return $html;
 }
-?>
 
-<?php 
 function get_speaker_playlist()
 {
 $collections=get_records("collection", array("public"=>"true","featured"=>"true"));
@@ -75,9 +70,7 @@ $playlist .= "]";
 $string = '$(document).ready(function() {projekktor(".projekktor").setFile(' . $playlist . ');});';
 queue_js_string($string);
 }
-?>
 
-<?php 
 function get_items_with_images() 
 {$items=get_records("item", array("collection"=>$current_collection));
 $num=0;
@@ -89,4 +82,3 @@ foreach ($items as $item){
 	<?php endif;}
 	$num++;}
 }
-?>
