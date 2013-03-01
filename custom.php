@@ -1,25 +1,4 @@
 <?php
-function display_random_featured_collection_with_item()
-{
-
-    $featuredCollection = random_featured_collection();
-    $html = '<h2>Featured Collection</h2>';
-    if ($featuredCollection) {
-
-        $item = find_random_item(array('withImage' => true, 'collection' => $featuredCollection->id));
-
-        $html .= '<h3>' . link_to_collection($collectionTitle, array(), 'show', $featuredCollection) . '</h3>';
-        if (item_has_thumbnail($item)) {
-            $html .= link_to_item(item_square_thumbnail(array(), 0, $item), array('class'=>'image'), 'show', $item);
-        }
-        if ($collectionDescription = collection('Description', array('snippet'=>150), $featuredCollection)) {
-            $html .= '<p class="collection-description">' . $collectionDescription . '</p>';
-        }
-    } else {
-        $html .= '<p>No featured collections are available.</p>';
-    }
-    return $html;
-}
 
 function get_speaker_playlist()
 {
