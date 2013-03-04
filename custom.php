@@ -16,7 +16,19 @@ foreach ($items as $item) {
                 '0'      => array('src' => $sourceMetadata, 'type' => 'audio/mp3'),
                 'config' => array('title' => $titleMetadata, 'poster' => $imageMetadata)
             );
-        }
+        } 
+		elseif ($file->getExtension() == 'ogg') {
+			     $playlist[] = array(
+			         '0'      => array('src' => $sourceMetadata, 'type' => 'audio/ogg'),
+			         'config' => array('title' => $titleMetadata, 'poster' => $imageMetadata)
+			     );
+		}
+		elseif ($file->getExtension() == 'wav') {
+	            $playlist[] = array(
+	                '0'      => array('src' => $sourceMetadata, 'type' => 'audio/wav'),
+	                'config' => array('title' => $titleMetadata, 'poster' => $imageMetadata)
+	            );
+		}
     }       
 }
 
