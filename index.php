@@ -21,18 +21,24 @@
 		<p><?php echo metadata($current_collection, array('Dublin Core', 'Description'));?></p>
     </div>
 	<div>
-		<h2><?php echo __('Collection Images'); ?></h2>
-		<div id="lesphotos">
-		<?php $items=get_records("item", array("collection"=>$current_collection));
-		$num=0;
+		<?php
+		$image_uris=array();
+		$image_thumbnails=array();
+		$items=get_records("item", array("collection"=>$current_collection));
 		foreach ($items as $item){			
-			
 				foreach($item->Files as $file) {
-					if ($file->hasThumbnail()):?>
-				<a href="<?php echo metadata($file, 'uri');?>"><img src="<?php echo metadata($file, 'square_thumbnail_uri');?>"></a>
-			<?php endif;}
-			$num++;}?>
-		</div>
+					if ($file->hasThumbnail()):
+						array_push($image_uris, metadata($file, 'uri'));
+						array_push($image_thumbnails, metadata($file, 'square_thumbnail_uri'));
+			endif;}}?>
+		<?php if ($image_uris != null):?>
+			<h2><?php echo __('Collection Images'); ?></h2>
+			<div id="lesphotos">
+				<?php foreach (array_combine($image_uris, $image_thumbnails) as $uri => $thumbnail) {
+					echo "<a href=". $uri . "><img src=". $thumbnail ."></a>";}?>
+			</div>
+		<?php endif?>
+
 	</div>
     <?php endif; ?>
 	<!-- end featured collection -->
