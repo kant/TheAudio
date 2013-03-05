@@ -3,7 +3,7 @@
 function get_speaker_playlist()
 {
 $collections=get_records("Collection", array("public"=>"true","featured"=>"true"));
-$current_collection=end($collections);
+$current_collection=$collections[0];
 $items=get_records("Item", array("collection"=>$current_collection));
 $playlist = array();
 foreach ($items as $item) {
