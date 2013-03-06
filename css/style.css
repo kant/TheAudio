@@ -1152,17 +1152,6 @@ header
 	border:1px solid #ccc;
 }
 
-.collection
-{
-	border-top:1px solid #ccc;
-	padding-top:1.33333em;
-}
-
-.collection .element
-{
-	margin-bottom:0;
-}
-
 .element-div
 {
 	font-size:16px;
@@ -1464,4 +1453,38 @@ footer li
 	{
 		width:30%;
 	}
+}
+
+/*Collection Browse*/
+.collection {
+	width:100%;
+	display: table;
+	border-top:1px solid #ccc;
+}
+
+.collection_image, .collection_data {
+	float: left;
+	display:table-cell;
+	min-height: 200px;
+	padding: 10px 0;
+	
+}
+
+.collection_image {
+	width: 20%;
+	min-width:200px;
+
+}
+
+.collection_data {
+	width:80%;
+}
+
+.collection:after {
+	clear:both;
+}
+
+.collection .element
+{
+	margin-bottom:0;
 }
