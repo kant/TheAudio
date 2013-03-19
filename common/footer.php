@@ -1,6 +1,5 @@
-        </div><!-- end content -->
+        </div><!-- end primary -->
 
-    </div><!-- end wrap -->
     
 
     <footer>
@@ -16,6 +15,8 @@
         <?php fire_plugin_hook('public_footer'); ?>
 
     </footer><!-- end footer -->
+</div><!-- end content -->
+</div><!-- end wrap -->
 
     <script type="text/javascript">
     jQuery(document).ready(function () {

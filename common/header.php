@@ -18,7 +18,7 @@
 <!-- Stylesheets -->
     <?php 
 	queue_css_file('style');
-	queue_css_url('http://fonts.googleapis.com/css?family=Karla:400,700|Oswald:400'); 
+	queue_css_url('http://fonts.googleapis.com/css?family=Crimson+Text|Allerta'); 
 	echo head_css();
 	
 	echo theme_header_background();
@@ -44,10 +44,10 @@
            <?php fire_plugin_hook('public_header'); ?>
            <div id="site-title"><?php echo link_to_home_page(theme_logo()); ?></div>
 			<nav id="primary-nav">
-				<?php echo public_nav_main(); ?>
-               <div id="search-wrap">
+				<div id="search-wrap">
                    <?php echo search_form(array('show_advanced' => false)); ?>
                </div>
+				<?php echo public_nav_main(); ?>
            </nav>
 	</header>
               
