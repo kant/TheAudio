@@ -553,6 +553,10 @@ header
 	width:100%;
 }
 
+header::after {
+	clear:both;
+}
+
 #site-title
 {
 	float:left;
@@ -566,6 +570,7 @@ header
 {
 	border-bottom:0;
 	color:#079fcc;
+	line-height:1em;
 }
 
 #site-title a:hover
@@ -1477,7 +1482,8 @@ footer li
 }
 
 .collection_data {
-	width:80%;
+	width:70%;
+	padding-left:10px;
 }
 
 .collection:after {

@@ -22,7 +22,7 @@ echo head(array('title'=>$pageTitle,'bodyid'=>'collections','bodyclass' => 'brow
 					endif;}
 		}?>
 		<?php if ($images != null):?>
-			<a href="<?php echo $images[0]?>"><img src="<?php echo $thumbnails[0]?>"></a>
+			<a href="<?php echo $images[1]?>"><img src="<?php echo $thumbnails[1]?>"></a>
 		<?php endif;?>
 	</div>
 	<div class="collection_data">
