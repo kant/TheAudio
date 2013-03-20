@@ -946,6 +946,12 @@ header::after {
 	width:10%;
 }
 
+a#advanced-search.button {
+	display: none;
+	width:0px;
+	height:0px;
+}
+
 #advanced-search:link,#advanced-search:hover,#advanced-search:active,#advanced-search:visited
 {
 	color:#fff;
