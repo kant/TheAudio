@@ -1,7 +1,4 @@
         </div><!-- end primary -->
-
-    
-
     <footer>
 
         <div id="footer-text">
