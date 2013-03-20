@@ -24,7 +24,7 @@
 		<?php
 		$image_uris=array();
 		$image_thumbnails=array();
-		$items=get_records("item", array("collection"=>$current_collection));
+		$items=get_records("item", array("collection"=>$current_collection),200);
 		foreach ($items as $item){			
 				foreach($item->Files as $file) {
 					if ($file->hasThumbnail()):
@@ -75,8 +75,6 @@
         <p class="view-items-link"><?php echo link_to_items_browse(__('View All Items')); ?></p>
 		<?php endif; ?>
     </div><!-- end recent-items -->
-
-</div><!-- end primary -->
 
 <div>
 	<audio class="projekktor speakker dark">
