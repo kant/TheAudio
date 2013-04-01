@@ -20,7 +20,6 @@
 	queue_css_file('style');
 	queue_css_url('http://fonts.googleapis.com/css?family=Crimson+Text|Allerta'); 
 	echo head_css();
-	
 	echo theme_header_background();
 	?>
 	
@@ -29,9 +28,8 @@
     <?php queue_js_file('selectivizr-min'); ?>
     <?php queue_js_file('respond.min'); ?>
     <?php queue_js_file('globals'); ?>
-	<?php queue_js_file('jquery.min', 'speakker-big-1.2.07r157'); ?>
-	<?php queue_js_file('speakker-big-1.2.07r157.min', 'speakker-big-1.2.07r157'); ?>
-	<?php get_speaker_playlist();?>
+	<?php queue_js_file('jquery.min', 'javascripts/speakker-big-1.2.07r157'); ?>
+	<?php queue_js_file('speakker-big-1.2.07r157.min', 'javascripts/speakker-big-1.2.07r157'); ?>
     <?php echo head_js(); ?>
 </head>
 
