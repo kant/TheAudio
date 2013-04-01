@@ -6,6 +6,7 @@
     		<p><?php echo $homepageText; ?></p>
 		</div>
     <?php endif; ?>
+	
 	<!-- Main Image -->
 	<?php if (get_theme_option('photo')):;?>
 		<div id="main_image">
@@ -39,19 +40,12 @@
 					</div>
 					<?php endif?>
 		</div>
-	<?php else:?>
+	<?php elseif (get_theme_option('content') === 'collection' && $collections == null):?>
 		<div>
 			<p>No featured collections are available. Add a featured collection or go to "Appearance"->"Configure Theme"->"Home Page Content" to choose another content source.</p>
 		</div>		
     <?php endif; ?>
 	<!-- end featured collection -->
-
-
-    <!-- Featured Exhibit -->
-	<?php if (get_theme_option('content') === 'exhibit' && function_exists('exhibit_builder_display_random_featured_exhibit')): ?>
-    <?php echo exhibit_builder_display_random_featured_exhibit(); ?>
-    <?php endif; ?>
-	<!-- end Featured Exhibit -->
 	
 	<!-- Recent Items -->
 		<?php if (get_theme_option('content') === 'items'): ?>
