@@ -40,6 +40,10 @@
 					</div>
 					<?php endif?>
 		</div>
+	<?php else:?>
+		<div>
+			<p>No featured collections are available. Add a featured collection or go to "Appearance"->"Configure Theme"->"Home Page Content" to choose another content source.</p>
+		</div>		
     <?php endif; ?>
 	<!-- end featured collection -->
 
