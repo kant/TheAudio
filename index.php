@@ -6,19 +6,18 @@
     		<p><?php echo $homepageText; ?></p>
 		</div>
     <?php endif; ?>
+	<!-- Main Image -->
+	<?php if (get_theme_option('photo')):;?>
+		<div id="main_image">
+			<img src="<?php echo absolute_url('files/theme_uploads/'.get_theme_option('photo'));?>">
+		</div>
+	<?php endif;?>
 
     <!-- Featured Collection -->
     <?php $collections=get_records("collection", array("public"=>"true","featured"=>"true"));
 	if (get_theme_option('content') === 'collection' && $collections != null):?>
     	<div id="featured-collection">
 			<?php $current_collection=end($collections);?>
-<!-- Move this -->
-			<?php if (get_theme_option('photo')):;?>
-				<div id="main_image">
-					<img src="<?php echo absolute_url('files/theme_uploads/'.get_theme_option('photo'));?>">
-				</div>
-			<?php endif;?>
-<!-- End move this -->
 			<h2><?php echo metadata($current_collection, array('Dublin Core', 'Title'));?></h2>
 			<p><?php echo metadata($current_collection, array('Dublin Core', 'Description'));?></p>
     	</div>
