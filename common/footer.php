@@ -14,9 +14,5 @@
     </footer><!-- end footer -->
 </div><!-- end content -->
 </div><!-- end wrap -->
-
-<!-- Javascript -->
-		
-
 </body>
 </html>

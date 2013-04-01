@@ -24,12 +24,15 @@
 	?>
 	
 <!-- JavaScripts -->
-    <?php queue_js_file('modernizr'); ?>
-    <?php queue_js_file('selectivizr-min'); ?>
-    <?php queue_js_file('respond.min'); ?>
-    <?php queue_js_file('globals'); ?>
+	<?php queue_js_file('modernizr'); ?>
+	<?php queue_js_file('selectivizr-min'); ?>
+	<?php queue_js_file('respond.min'); ?>
+	<?php queue_js_file('globals'); ?>
 	<?php queue_js_file('jquery.min', 'javascripts/speakker-big-1.2.07r157'); ?>
 	<?php queue_js_file('speakker-big-1.2.07r157.min', 'javascripts/speakker-big-1.2.07r157'); ?>
+	<?php if (get_theme_option('content') === 'collection' && get_records("collection", array("public"=>"true","featured"=>"true")) != null):
+		get_speaker_playlist();
+	endif;?>
     <?php echo head_js(); ?>
 </head>
 
